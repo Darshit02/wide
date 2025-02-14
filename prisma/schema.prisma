@@ -12,3 +12,42 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model User {
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  clerkId String @unique
+  name String
+  email String @unique
+  profileImage String?
+  subscription Boolean? @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lemonSqeezyApiKey String?
+  storeId String?
+  webhookSecret String?
+
+  Projects Project[] @relation("OwnedProjects")
+  PurchaseProjects Project[] @relation("PurchaseProjects")
+
+
+}
+
+model Project {
+  id String @id @default(cuid())
+  title String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  slides Json?
+  userId String @db.Uuid
+  outlines String[]
+  isDeleted Boolean @default(false)
+  isSellable Boolean @default(false)
+  variantId String?
+  thumbnail String?
+  themeName String @default("light")
+
+  User User @relation("OwnedProjects" , fields: [userId], references: [id])
+  Purchasers User[] @relation("PurchaseProjects")
+}
