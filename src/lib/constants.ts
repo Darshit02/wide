@@ -1,8 +1,5 @@
-import Home from "@/icons/Home";
-// import { Share } from "@/icons/Share";
-import { Template } from "@/icons/Template";
-import { Trash } from "@/icons/Trash";
-import { Settings } from "lucide-react";
+
+import { HomeIcon, LayoutTemplate, Settings, Trash2 } from "lucide-react";
 import {
   BlankCard,
   AccentLeft,
@@ -58,17 +55,17 @@ export const data = {
     {
       title: "Home",
       url: "/dashboard",
-      icon: Home,
+      icon: HomeIcon,
     },
     {
       title: "Templates",
       url: "/templates",
-      icon: Template,
+      icon: LayoutTemplate,
     },
     {
       title: "Trash",
       url: "/trash",
-      icon: Trash,
+      icon: Trash2,
     },
     {
       title: "Settings",
