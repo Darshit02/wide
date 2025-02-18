@@ -26,7 +26,7 @@ export const getAllProjects = async () => {
       };
     return {
       status: 200,
-      projects,
+      data : projects,
     };
   } catch (error) {
     console.log("🔴 Error", error);

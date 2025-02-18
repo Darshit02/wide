@@ -43,7 +43,7 @@ const AppSidebar = ({
           </span>
         </SidebarMenuButton>
       </SidebarHeader>
-      <SidebarContent className="px-3 mt-10 gap-y-6">
+      <SidebarContent className="px-2 mt-10 gap-y-6">
         <NavMain items={data.navMain} />
         <RecentOpen recentProjects={recentProjects}/>
       </SidebarContent>
