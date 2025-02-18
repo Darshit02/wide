@@ -12,6 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import NavMain from "./nav-main";
 import { data } from "@/lib/constants";
 import RecentOpen from "./recent-open";
+import NavFooter from "./nav-footer";
 
 const AppSidebar = ({
   recentProjects,
@@ -42,11 +43,13 @@ const AppSidebar = ({
           </span>
         </SidebarMenuButton>
       </SidebarHeader>
-      <SidebarContent className="px-3 mt-10 gap-y-6">
+      <SidebarContent className="px-2 mt-10 gap-y-6">
         <NavMain items={data.navMain} />
         <RecentOpen recentProjects={recentProjects}/>
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter>
+        <NavFooter prismaUser={user}/>
+      </SidebarFooter>
     </Sidebar>
   );
 };
